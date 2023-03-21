@@ -12,27 +12,22 @@ char GetChar(int iGenerator, char cBase, int iRange) {
 }
 
 
-void clearScreen() {
-    COORD cursorPosition;
-    cursorPosition.X = 0;
-    cursorPosition.Y = 0;
-    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), cursorPosition);
-}
+
 
 
 int main()
 {
-
+    
     // Color Code
     // 1 BLUE
     // 2 GREEN  
     // 3 CYAN
     // 4 YELLOW
+    
 
     HANDLE hConsole;
-
+  
     hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-
     SetConsoleTextAttribute(hConsole, 2); // Color Code
     // 1=BLUE
     // 2=GREEN  
@@ -63,6 +58,7 @@ int main()
             std::cout << caRow[i];
             SetConsoleTextAttribute(hConsole, 2);
         }
+       
         j += 31;
         k += 17;
         l += 47;
@@ -72,9 +68,12 @@ int main()
         caRow[Modulus(l, 80)] = '-';
         caRow[Modulus(m, 80)] = '+';
 
+        
+
         // DELAY
         Sleep(10);
         
     }
+    
     return 0;
 }
